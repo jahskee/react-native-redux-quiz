@@ -1,4 +1,4 @@
-# Final Project: Quiz App
+# Quiz App - Time Pressured
 
 ## Intro
 
