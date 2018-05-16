@@ -3,11 +3,10 @@
 ## Intro
 
 A time-pressured quiz app that gives users eight seconds to answer each question.
-The number of questions and categories can be configured and is scalable, but for this app
-it was set to a maximum of ten questions and two categories (Science, English). A considerable chunk of data  is 
-fetched from my REST server api.stratteos.us a server I developed using Node.js and MongoDb. 
+The number of questions and categories can be configured and is scalable, but for this app, it was set to a maximum of ten questions and two categories (Science, English). A considerable chunk of data is
+fetched from my REST server api.stratteos.us a server I developed using Node.js and MongoDB. 
 A considerable amount of data (not too large) is copied to Redux store. One of my optimization 
-goals is to move all stying to Stylesheet object instead of within tags.
+goals are to move all stying to Stylesheet object instead of within tags.
 
 Created 2 setInterval functions one for timer and one that tracks movement to next question until 
 it hits the maximum questions, then the result page will show up.
