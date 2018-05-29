@@ -2,7 +2,7 @@
 API = {};
 
 API.getCategories = async () => {
-  response = await fetch("https://api.stratteos.us/api/category");
+  response = await fetch("https://www.stratteos.us/api/category");
   if (response.status != 200)
     throw `Server api error reponse.status=${response.status}`;
   categories = await response.json();
@@ -10,7 +10,7 @@ API.getCategories = async () => {
 };
 
 API.getQuestions = async category => {
-  response = await fetch(`https://api.stratteos.us/api/questions/${category}`);
+  response = await fetch(`https://www.stratteos.us/api/questions?criteria={'category': '${category}'}`);
   if (response.status != 200)
     throw `Server api error reponse.status=${response.status}`;
   questions = await response.json();
