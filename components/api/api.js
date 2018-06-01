@@ -10,7 +10,7 @@ API.getCategories = async () => {
 };
 
 API.getQuestions = async category => {
-  response = await fetch(`https://www.stratteos.us/api/questions?criteria={'category': '${category}'}`);
+  response = await fetch(`https://www.stratteos.us/api/questions/${category}`);
   if (response.status != 200)
     throw `Server api error reponse.status=${response.status}`;
   questions = await response.json();
