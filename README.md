@@ -39,8 +39,8 @@ https://github.com/jahskee/quiz-node-rest-back-end
 
 ## REST
 
-https://api.stratteos.us/api/category
+https://www.stratteos.us/api/category
 
-https://api.stratteos.us/api/questions/science
+https://www.stratteos.us/api/questions/science
 
-https://api.stratteos.us/api/questions/english
+https://www.stratteos.us/api/questions/english
