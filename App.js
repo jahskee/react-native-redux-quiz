@@ -14,10 +14,11 @@ import ViewResultScreen from "./components/screens/ViewResultScreen";
 import SettingsScreen from "./components/screens/SettingsScreen";
 import Config, { Color } from "./components/utils/config";
 import store from "./components/redux/store";
+import { myStyle } from "./components/_styles/mystyle";
 
 global.log = console.log;
 
-const MainStack = createStackNavigator(
+const HomeTab = createStackNavigator(
   {
     QuizCategory: QuizCategoryScreen,
     QuizPage: QuizPageScreen,
@@ -27,38 +28,61 @@ const MainStack = createStackNavigator(
   {
     initialRouteName: "QuizCategory",
     navigationOptions: {
-      headerTintColor: Color.primary,
+      headerTintColor: myStyle.primaryColor,
       headerStyle: {
-        backgroundColor: "#fff"
+        backgroundColor: myStyle.topBarColor,       
       }
-    }
+    },    
   }
 );
 
-MainStack.navigationOptions = {
-  tabBarIcon: ({ focused, tintColor }) =>
-    <Ionicons
-      name={`ios-home${focused ? "" : "-outline"}`}
-      size={25}
-      color={`${focused ? Color.primary : "red"}`}
-    />
-};
-
-const MainTabs = createBottomTabNavigator(
-  {
-    Home: MainStack,
-    Settings: SettingsScreen
+const SettingTab = createStackNavigator(
+  {  
+    SettingsScreen,
   },
   {
+    initialRouteName: "SettingScreen",
+    navigationOptions: {
+      headerTintColor: myStyle.primaryColor,
+      headerStyle: {
+        backgroundColor: myStyle.topBarColor,       
+      }
+    },    
+  }
+);
+
+// ------------------
+
+const MainTabs = createBottomTabNavigator(
+  {    
+    Home: HomeTab,
+    Settings: SettingTab,
+  },
+  {
+    navigationOptions: ({ navigation }) => ({
+      tabBarIcon: ({ focused, tintColor }) => {
+        const { routeName } = navigation.state;
+        let iconName;
+        if (routeName === 'Home') {
+          iconName = `ios-home${focused ? '' : '-outline'}`;          
+        } else if (routeName === 'Settings') {
+          iconName = `ios-construct${focused ? '' : '-outline'}`;
+        } 
+        return <Ionicons name={iconName} size={25} color={tintColor} />;
+      },
+    }),
     tabBarOptions: {
-      activeTintColor: Color.primary
-    }
+      activeTintColor: '#2a5089',
+      inactiveTintColor: 'gray',
+    },
+    barStyle: { backgroundColor: myStyle.bottomBarColor },
   }
 );
 
 const AppNavigator = createSwitchNavigator({
   Main: MainTabs
 });
+
 
 export default class App extends React.Component {
   setMaxQuestions = maxQuestions => {
