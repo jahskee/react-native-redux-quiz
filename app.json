@@ -21,7 +21,12 @@
       "**/*"
     ],
     "ios": {
+      "bundleIdentifier": "com.jahskee.funquiz",
       "supportsTablet": true
+    },
+    "android": {
+      "package": "com.jahskee.funquiz"
     }
+
   }
 }

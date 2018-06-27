@@ -1,5 +1,8 @@
 {
   "expoServerPort": 19000,
   "packagerPort": 19001,
-  "packagerPid": 2995
+  "packagerPid": 27767,
+  "expoServerNgrokUrl": "https://6u-ya8.jahskee.quizapp.exp.direct",
+  "packagerNgrokUrl": "https://packager.6u-ya8.jahskee.quizapp.exp.direct",
+  "ngrokPid": 27899
 }
